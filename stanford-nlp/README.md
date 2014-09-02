@@ -1,19 +1,12 @@
 
+1. load the example `ontology/sentiment.owl` file to enable all `Thing` concepts to have a sentiment property
 
+1. configure the following Lumify property:
 
-The stanford-nlp module requires the following ontology properties located in the following files:
-    File: /lumify/examples/ontology-dev/dev.owl:
-        Property: sentiment
-     
-Please make sure the following are in your /opt/lumify/lumify.properties file:
-     # Ontology
-     ontology.iri.sentiment=http://lumify.io/dev#sentiment
+        ontology.iri.sentiment=http://lumify.io/sentiment#sentiment
 
+1. build the storm plugin:
 
-     
-     
-Or to create your own ontologies, edit:
-    lumify.properties file.
-    SENTIMENT_IRI variable in SentimentAnalysisGraphPropertyWorker.java
- 
- 
+        mvn package
+
+1. copy the storm plugin `.jar` to `hdfs://lumify/libcache`
